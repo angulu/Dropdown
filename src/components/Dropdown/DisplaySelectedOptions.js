@@ -17,7 +17,7 @@ import Tile from "./Tile";
  * @param {function} setIsDropdownOpen callback to set selected options
  * @param {boolean} deselectOptions if true allow deselecting selected options
  */
-function Display(props) {
+function DisplaySelectedOptions(props) {
   const { handleSelectAllOptions, handleRemoveOption, handleDeselectAllOptions, isDropdownOpen, multiple, optionLabel, selectedOptions, setIsDropdownOpen, deselectOptions } = props;
 
   const handleDropdownOpen = () => {
@@ -72,5 +72,5 @@ function Display(props) {
   );
 }
   
-export default Display;
+export default DisplaySelectedOptions;
   

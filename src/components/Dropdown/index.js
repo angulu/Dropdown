@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Display from "./Display";
+import DisplaySelectedOptions from "./DisplaySelectedOptions";
 import Option from "./Option";
 import { filterOptionsNotInArray, getOptionTitle, getValidWidth } from "./helperFunctions";
 import "./index.css";
@@ -60,7 +60,7 @@ function Dropdown(props) {
   const allowDeselectOptions = options.length === selectedOptions.length || (!multiple && selectedOptions.length);
   return (
     <div style={{width: getValidWidth(width)}}>
-      <Display
+      <DisplaySelectedOptions
         handleSelectAllOptions={handleSelectAllOptions}
         handleRemoveOption={handleRemoveOption}
         handleDeselectAllOptions={handleDeselectAllOptions}
