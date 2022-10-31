@@ -1,0 +1,18 @@
+:root {
+    --light-blue: rgba(136, 136, 233, 0.513);
+}
+
+.display {
+    border: 1px solid;
+}
+
+.active {
+    background-color: var(--light-blue);
+}
+
+.option {
+    padding: 3px 5px;
+    height: 25px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
