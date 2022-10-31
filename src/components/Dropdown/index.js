@@ -6,10 +6,11 @@ import "./index.css";
 
 /**
  * Dropdown component
- * @param {array} options 
- * @param {boolean} multiple 
+ * @param {*} options 
+ * @param {boolean} multiple if true allow selecting multiple options
  * @param {function} onChange 
- * @param {string} optionLabel 
+ * @param {string} optionLabel if option is an object, optionLabel is the name of the property whose
+ * value is to be displayed as a title/label for the option
  * @param {number} width 
  */
 function Dropdown(props) {
@@ -54,6 +55,9 @@ function Dropdown(props) {
   }
 
   const optionsNotSelected = filterOptionsNotInArray(options, selectedOptions);
+  // Allow clearing selected options in multi select when all are selected,
+  // in single select when one option is selected
+  const allowDeselectOptions = options.length === selectedOptions.length || (!multiple && selectedOptions.length);
   return (
     <div style={{width: getValidWidth(width)}}>
       <Display
@@ -65,7 +69,7 @@ function Dropdown(props) {
         optionLabel={optionLabel}
         selectedOptions={selectedOptions}
         setIsDropdownOpen={setIsDropdownOpen}
-        allSelectedOptions={options.length === selectedOptions.length}
+        deselectOptions={allowDeselectOptions}
       />
       {isDropdownOpen && (
         <div id="menu">

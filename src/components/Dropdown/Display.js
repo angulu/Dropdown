@@ -15,10 +15,10 @@ import Tile from "./Tile";
  * value is to be displayed as a title/label for the option
  * @param {Array} selectedOptions array of selected options
  * @param {function} setIsDropdownOpen callback to set selected options
- * @param {boolean} allSelectedOptions true if all options are selected
+ * @param {boolean} deselectOptions if true allow deselecting selected options
  */
 function Display(props) {
-  const { handleSelectAllOptions, handleRemoveOption, handleDeselectAllOptions, isDropdownOpen, multiple, optionLabel, selectedOptions, setIsDropdownOpen, allSelectedOptions } = props;
+  const { handleSelectAllOptions, handleRemoveOption, handleDeselectAllOptions, isDropdownOpen, multiple, optionLabel, selectedOptions, setIsDropdownOpen, deselectOptions } = props;
 
   const handleDropdownOpen = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -27,16 +27,13 @@ function Display(props) {
   // Components to open dropdown and select or deselect all options
   const actions = (
     <div className="actions">
-      {multiple && (
-        <>
-          <AddClearToggle
-            allSelectedOptions={allSelectedOptions}
-            handleSelectAllOptions={handleSelectAllOptions}
-            handleDeselectAllOptions={handleDeselectAllOptions}
-          />
-          <span className="divider"></span>
-        </>
-      )}
+      <AddClearToggle
+        deselectOptions={deselectOptions}
+        handleSelectAllOptions={handleSelectAllOptions}
+        handleDeselectAllOptions={handleDeselectAllOptions}
+        multiple={multiple}
+      />
+      <span className="divider"></span>
       <ArrowToggle
         isDropdownOpen={isDropdownOpen}
         handleDropdownOpen={handleDropdownOpen}
