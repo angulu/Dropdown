@@ -17,7 +17,11 @@ function Dropdown(props) {
 
   /* Add selected option to state */
   const handleSelectedOption = (option) => {
-    setSelectedOptions((state) => [...state, option]);
+    if (multiple) {
+        setSelectedOptions((state) => [...state, option]);
+    } else {
+        setSelectedOptions([option]);
+    }
   }
 
   /* Remove the option from state */
@@ -44,15 +48,17 @@ function Dropdown(props) {
   }, [selectedOptions]);
 
   const optionsNotSelected = filterOptionsNotInArray(options, selectedOptions);
-
   return (
    <div>
     <Display
       handleAddAllOptions={handleAddAllOptions}
       handleRemoveOption={handleRemoveOption}
       handleRemoveAllOptions={handleRemoveAllOptions}
+      isDropdownOpen={isDropdownOpen}
+      multiple={multiple}
       selectedOptions={selectedOptions}
       setIsDropdownOpen={setIsDropdownOpen}
+      allSelectedOptions={options.length === selectedOptions.length}
     />
     {isDropdownOpen && (
       <div>

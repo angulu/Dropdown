@@ -1,11 +1,18 @@
 import Dropdown from "./components/Dropdown";
 import { top100Films } from "./data";
+import "./App.css";
 
 function App() {
   return (
-   <>
-    <Dropdown options={top100Films} onChange={(vals) => { console.log(vals)}} multiple/>
-   </>
+   <main>
+    <section>
+      <Dropdown options={top100Films} onChange={(vals) => {}} multiple/>
+    </section>
+
+    <section>
+      <Dropdown options={top100Films} onChange={(vals) => {}}/>
+    </section>
+   </main>
   );
 }
 
