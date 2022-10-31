@@ -20,9 +20,9 @@ function Dropdown(props) {
   /* Add selected option to state */
   const handleSelectedOption = (option) => {
     if (multiple) {
-        setSelectedOptions((state) => [...state, option]);
+      setSelectedOptions((state) => [...state, option]);
     } else {
-        setSelectedOptions([option]);
+      setSelectedOptions([option]);
     }
   }
 
@@ -34,12 +34,12 @@ function Dropdown(props) {
   }
 
   /* Add all options to state */
-  const handleAddAllOptions = () => {
+  const handleSelectAllOptions = () => {
     setSelectedOptions([...options]);
   }
 
   /* Remove all options from state */
-  const handleRemoveAllOptions = () => {
+  const handleDeselectAllOptions = () => {
     setSelectedOptions([]);
   }
 
@@ -55,36 +55,35 @@ function Dropdown(props) {
 
   const optionsNotSelected = filterOptionsNotInArray(options, selectedOptions);
   return (
-   <div style={{width: getValidWidth(width)}}>
-    <Display
-      handleAddAllOptions={handleAddAllOptions}
-      handleRemoveOption={handleRemoveOption}
-      handleRemoveAllOptions={handleRemoveAllOptions}
-      isDropdownOpen={isDropdownOpen}
-      multiple={multiple}
-      optionLabel={optionLabel}
-      selectedOptions={selectedOptions}
-      setIsDropdownOpen={setIsDropdownOpen}
-      allSelectedOptions={options.length === selectedOptions.length}
-    />
-    {isDropdownOpen && (
-      <div id="menu">
-        {optionsNotSelected.map((option, index) => (
-          <Option
-            key={index}
-            title={getOptionTitle(option, optionLabel)}
-            handleSelectedOption={() => handleSelectedOption(option)}
-            multiple={multiple}
-          />
-        ))}
-        {optionsNotSelected.length === 0 && (
+    <div style={{width: getValidWidth(width)}}>
+      <Display
+        handleSelectAllOptions={handleSelectAllOptions}
+        handleRemoveOption={handleRemoveOption}
+        handleDeselectAllOptions={handleDeselectAllOptions}
+        isDropdownOpen={isDropdownOpen}
+        multiple={multiple}
+        optionLabel={optionLabel}
+        selectedOptions={selectedOptions}
+        setIsDropdownOpen={setIsDropdownOpen}
+        allSelectedOptions={options.length === selectedOptions.length}
+      />
+      {isDropdownOpen && (
+        <div id="menu">
+          {optionsNotSelected.map((option, index) => (
+            <Option
+              key={index}
+              title={getOptionTitle(option, optionLabel)}
+              handleSelectedOption={() => handleSelectedOption(option)}
+            />
+          ))}
+          {optionsNotSelected.length === 0 && (
             <div id="option-placeholder">No options</div>
-        )}
-      </div>
-    )}
-   </div>
+          )}
+        </div>
+      )}
+    </div>
   );
-  }
+}
   
-  export default Dropdown;
+export default Dropdown;
   

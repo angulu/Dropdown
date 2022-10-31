@@ -1,95 +1,95 @@
 :root {
-    --black: #000;
-    --white: #fff;
-    --grey: #aeafb0;
-    --light-grey: #aeafb064;
-    --tile-corners: 20px;
-    --gap: 7px;
-    --height: 25px;
-    --menu-height: 250px;
-    --padding: 2px 5px;
+  --black: #000;
+  --white: #fff;
+  --grey: #aeafb0;
+  --light-grey: #aeafb064;
+  --tile-corners: 20px;
+  --gap: 7px;
+  --height: 25px;
+  --menu-height: 250px;
+  --padding: 2px 5px;
 }
 
 #menu {
-    width: inherit;
-    max-height: var(--menu-height);
-    position: absolute;
-    z-index: 3;
-    background-color: var(--white);
-    box-shadow: 1px 1px 10px 2px var(--grey);
-    overflow-y: auto;
+  width: inherit;
+  max-height: var(--menu-height);
+  position: absolute;
+  z-index: 3;
+  background-color: var(--white);
+  box-shadow: 1px 1px 10px 2px var(--grey);
+  overflow-y: auto;
 }
 
 .display {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    min-height: calc(var(--height) * 1.15);
-    max-height: calc(var(--height) * 5);
-    overflow-y: auto;
-    gap: var(--gap);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: calc(var(--height) * 1.15);
+  max-height: calc(var(--height) * 5);
+  overflow-y: auto;
+  gap: var(--gap);
 
-    border: 1.5px solid;
-    border-radius: calc(var(--tile-corners) * 0.2);
-    padding: var(--padding);
+  border: 1.5px solid;
+  border-radius: calc(var(--tile-corners) * 0.2);
+  padding: var(--padding);
 }
 
 .tile-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
 }
 
 .tile {
-    border-radius: var(--tile-corners);
-    background-color: var(--grey);
-    color: var(--black);
-    padding: var(--padding);
-    height: var(--height);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--gap);
+  border-radius: var(--tile-corners);
+  background-color: var(--grey);
+  color: var(--black);
+  padding: var(--padding);
+  height: var(--height);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
 }
 
 .option {
-    padding: var(--padding);
-    min-height: var(--height);
-    text-transform: capitalize;
-    cursor: pointer;
+  padding: var(--padding);
+  min-height: var(--height);
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .option:hover {
-    background-color: var(--light-grey);
+  background-color: var(--light-grey);
 }
 
 .single-option {
-    line-height: calc(var(--height) * 1.15);
+  line-height: calc(var(--height) * 1.15);
 }
 
 .actions {
-    display: flex;
-    align-items: center;
-    column-gap: 5px;
-    width: fit-content;
-    padding-top: 3px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  width: fit-content;
+  padding-top: 3px;
 }
 
 .divider {
-    border-left: 1px solid var(--grey);
-    height: calc(var(--height) * 0.6);
+  border-left: 1px solid var(--grey);
+  height: calc(var(--height) * 0.6);
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #option-placeholder {
-    padding: var(--padding);
-    height: var(--height);
-    text-transform: capitalize;
-    font-style: italic;
-    color: var(--grey)
+  padding: var(--padding);
+  height: var(--height);
+  text-transform: capitalize;
+  font-style: italic;
+  color: var(--grey)
 }
 
