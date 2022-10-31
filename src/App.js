@@ -5,13 +5,8 @@ import "./App.css";
 function App() {
   return (
    <main>
-    <section>
-      <Dropdown options={top100Films} onChange={(vals) => {}} multiple/>
-    </section>
-
-    <section>
-      <Dropdown options={top100Films} onChange={(vals) => {}}/>
-    </section>
+      <Dropdown options={top100Films} onChange={() => {}} width={500} multiple/>
+      <Dropdown options={top100Films} onChange={() => {}} width={500}/>
    </main>
   );
 }

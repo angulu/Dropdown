@@ -55,10 +55,7 @@ function Display(props) {
       className="display"
     >
       <span className="single-option">{getOptionTitle(selectedOptions[0]) || ""}</span>
-      <ArrowToggle
-        isDropdownOpen={isDropdownOpen}
-        handleDropdownOpen={handleDropdownOpen}
-      />
+      {actions}
     </div>
   );
 }

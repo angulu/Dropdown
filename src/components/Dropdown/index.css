@@ -1,9 +1,22 @@
 :root {
     --black: #000;
-    --light-grey: #aeafb0;
+    --white: #fff;
+    --grey: #aeafb0;
+    --light-grey: #aeafb064;
     --tile-corners: 20px;
     --gap: 7px;
     --height: 25px;
+    --menu-height: 250px;
+}
+
+#menu {
+    width: inherit;
+    height: var(--menu-height);
+    position: absolute;
+    z-index: 3;
+    background-color: var(--white);
+    box-shadow: 1px 1px 10px 2px var(--grey);
+    overflow-y: auto;
 }
 
 .display {
@@ -11,6 +24,7 @@
     flex-direction: row;
     justify-content: space-between;
     min-height: calc(var(--height) * 1.15);
+    gap: var(--gap);
 
     border: 1.5px solid;
     border-radius: calc(var(--tile-corners) * 0.2);
@@ -25,7 +39,7 @@
 
 .tile {
     border-radius: var(--tile-corners);
-    background-color: var(--light-grey);
+    background-color: var(--grey);
     color: var(--black);
     padding: 2px 5px;
     height: var(--height);
@@ -43,23 +57,28 @@
     cursor: pointer;
 }
 
+.option:hover {
+    background-color: var(--light-grey);
+}
+
 .single-option {
     line-height: calc(var(--height) * 1.15);
 }
 
 .actions {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    min-width: 50px;
+    column-gap: 5px;
+    width: fit-content;
     padding-top: 3px;
 }
 
 .divider {
-    border-left: 1px solid var(--light-grey);
+    border-left: 1px solid var(--grey);
     height: calc(var(--height) * 0.6);
 }
 
 .pointer {
     cursor: pointer;
 }
+

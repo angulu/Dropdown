@@ -1,5 +1,5 @@
 main {
     display: flex;
-    flex-direction: column;
-    align-content: space-around;
+    justify-content: center;
+    column-gap: 100px;
 }

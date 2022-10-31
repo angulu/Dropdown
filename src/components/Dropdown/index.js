@@ -9,9 +9,10 @@ import "./index.css";
  * @param {array} options 
  * @param {boolean} multiple 
  * @param {function} onChange 
+ * @param {number} width 
  */
 function Dropdown(props) {
-  const { options, multiple, onChange} = props;
+  const { options, multiple, onChange, width} = props;
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -49,7 +50,7 @@ function Dropdown(props) {
 
   const optionsNotSelected = filterOptionsNotInArray(options, selectedOptions);
   return (
-   <div>
+   <div style={{width: width || 300}}>
     <Display
       handleAddAllOptions={handleAddAllOptions}
       handleRemoveOption={handleRemoveOption}
@@ -61,7 +62,7 @@ function Dropdown(props) {
       allSelectedOptions={options.length === selectedOptions.length}
     />
     {isDropdownOpen && (
-      <div>
+      <div id="menu">
         {optionsNotSelected.map((option, index) => (
           <Option
             key={index}
