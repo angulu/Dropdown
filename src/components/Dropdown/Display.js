@@ -1,22 +1,25 @@
 import { getOptionTitle } from "./helperFunctions";
+import Tile from "./Tile";
 
 function Display(props) {
-  const { selectedOptions, setIsDropdownOpen } = props;
+  const { handleAddAllOptions, handleRemoveOption, handleRemoveAllOptions, selectedOptions, setIsDropdownOpen } = props;
 
   const handleDropdownOpen = () => {
     setIsDropdownOpen((state) => !state);
   }
 
-  const getTitles = () => {
-    return selectedOptions.map(getOptionTitle).join(", ")
-  }
-
   return (
     <div
-      className="display"
+      className="display tile-group"
       onClick={handleDropdownOpen}
     >
-      {getTitles()}
+      {selectedOptions.map((option, index) => (
+        <Tile
+          key={index}
+          title={getOptionTitle(option)}
+          handleRemoveOption={() => handleRemoveOption(index)}
+        />
+      ))}
     </div>
   );
 }

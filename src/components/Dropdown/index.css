@@ -1,18 +1,38 @@
 :root {
-    --light-blue: rgba(136, 136, 233, 0.513);
+    --black: #000;
+    --light-grey: #aeafb0;
+    --tile-corners: 20px;
+    --gap: 7px;
+    --height: 25px;
 }
 
 .display {
     border: 1px solid;
 }
 
-.active {
-    background-color: var(--light-blue);
+.tile-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
 }
+
+.tile {
+    border-radius: var(--tile-corners);
+    background-color: var(--light-grey);
+    color: var(--black);
+    padding: 2px 5px;
+    height: var(--height);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+}
+
 
 .option {
     padding: 3px 5px;
-    height: 25px;
+    height: var(--height);
     text-transform: capitalize;
     cursor: pointer;
 }
