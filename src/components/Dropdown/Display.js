@@ -4,7 +4,7 @@ import { getOptionTitle } from "./helperFunctions";
 import Tile from "./Tile";
 
 function Display(props) {
-  const { handleAddAllOptions, handleRemoveOption, handleRemoveAllOptions, isDropdownOpen, multiple, selectedOptions, setIsDropdownOpen, allSelectedOptions } = props;
+  const { handleAddAllOptions, handleRemoveOption, handleRemoveAllOptions, isDropdownOpen, multiple, optionLabel, selectedOptions, setIsDropdownOpen, allSelectedOptions } = props;
 
   const handleDropdownOpen = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -38,7 +38,7 @@ function Display(props) {
           {selectedOptions.map((option, index) => (
             <Tile
               key={index}
-              title={getOptionTitle(option)}
+              title={getOptionTitle(option, optionLabel)}
               handleRemoveOption={() => handleRemoveOption(index)}
             />
           ))}
@@ -54,7 +54,7 @@ function Display(props) {
     <div
       className="display"
     >
-      <span className="single-option">{getOptionTitle(selectedOptions[0]) || ""}</span>
+      <span className="single-option">{getOptionTitle(selectedOptions[0], optionLabel) || ""}</span>
       {actions}
     </div>
   );

@@ -7,11 +7,12 @@
     --gap: 7px;
     --height: 25px;
     --menu-height: 250px;
+    --padding: 2px 5px;
 }
 
 #menu {
     width: inherit;
-    height: var(--menu-height);
+    max-height: var(--menu-height);
     position: absolute;
     z-index: 3;
     background-color: var(--white);
@@ -24,11 +25,13 @@
     flex-direction: row;
     justify-content: space-between;
     min-height: calc(var(--height) * 1.15);
+    max-height: calc(var(--height) * 5);
+    overflow-y: auto;
     gap: var(--gap);
 
     border: 1.5px solid;
     border-radius: calc(var(--tile-corners) * 0.2);
-    padding: 2px 5px;
+    padding: var(--padding);
 }
 
 .tile-group {
@@ -41,7 +44,7 @@
     border-radius: var(--tile-corners);
     background-color: var(--grey);
     color: var(--black);
-    padding: 2px 5px;
+    padding: var(--padding);
     height: var(--height);
     
     display: flex;
@@ -51,8 +54,8 @@
 }
 
 .option {
-    padding: 3px 5px;
-    height: var(--height);
+    padding: var(--padding);
+    min-height: var(--height);
     text-transform: capitalize;
     cursor: pointer;
 }
@@ -80,5 +83,13 @@
 
 .pointer {
     cursor: pointer;
+}
+
+#option-placeholder {
+    padding: var(--padding);
+    height: var(--height);
+    text-transform: capitalize;
+    font-style: italic;
+    color: var(--grey)
 }
 

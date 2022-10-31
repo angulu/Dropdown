@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Display from "./Display";
 import Option from "./Option";
-import { filterOptionsNotInArray, getOptionTitle } from "./helperFunctions";
+import { filterOptionsNotInArray, getOptionTitle, getValidWidth } from "./helperFunctions";
 import "./index.css";
 
 /**
@@ -9,10 +9,11 @@ import "./index.css";
  * @param {array} options 
  * @param {boolean} multiple 
  * @param {function} onChange 
+ * @param {string} optionLabel 
  * @param {number} width 
  */
 function Dropdown(props) {
-  const { options, multiple, onChange, width} = props;
+  const { options, multiple, onChange, optionLabel, width} = props;
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -48,15 +49,20 @@ function Dropdown(props) {
     }
   }, [selectedOptions]);
 
+  if (!Array.isArray(options)) {
+    return <></>
+  }
+
   const optionsNotSelected = filterOptionsNotInArray(options, selectedOptions);
   return (
-   <div style={{width: width || 300}}>
+   <div style={{width: getValidWidth(width)}}>
     <Display
       handleAddAllOptions={handleAddAllOptions}
       handleRemoveOption={handleRemoveOption}
       handleRemoveAllOptions={handleRemoveAllOptions}
       isDropdownOpen={isDropdownOpen}
       multiple={multiple}
+      optionLabel={optionLabel}
       selectedOptions={selectedOptions}
       setIsDropdownOpen={setIsDropdownOpen}
       allSelectedOptions={options.length === selectedOptions.length}
@@ -66,11 +72,14 @@ function Dropdown(props) {
         {optionsNotSelected.map((option, index) => (
           <Option
             key={index}
-            title={getOptionTitle(option)}
+            title={getOptionTitle(option, optionLabel)}
             handleSelectedOption={() => handleSelectedOption(option)}
             multiple={multiple}
           />
         ))}
+        {optionsNotSelected.length === 0 && (
+            <div id="option-placeholder">No options</div>
+        )}
       </div>
     )}
    </div>
