@@ -18,7 +18,17 @@ import Tile from "./Tile";
  * @param {boolean} deselectOptions if true allow deselecting selected options
  */
 function DisplaySelectedOptions(props) {
-  const { handleSelectAllOptions, handleRemoveOption, handleDeselectAllOptions, isDropdownOpen, multiple, optionLabel, selectedOptions, setIsDropdownOpen, deselectOptions } = props;
+  const {
+    handleSelectAllOptions,
+    handleRemoveOption,
+    handleDeselectAllOptions,
+    isDropdownOpen,
+    multiple,
+    optionLabel,
+    selectedOptions,
+    setIsDropdownOpen,
+    deselectOptions
+  } = props;
 
   const handleDropdownOpen = () => {
     setIsDropdownOpen(!isDropdownOpen);
